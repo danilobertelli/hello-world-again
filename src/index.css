@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Roboto Flex', monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --primary: #1e90ff; /* DodgerBlue */
+  --secondary: #ff6347; /* Tomato */
+  --background: #f0f8ff; /* AliceBlue */
+  --text: #333333; /* Dark Gray */
+  --accent: #ff4500; /* OrangeRed */
+  --muted: #d3d3d3; /* LightGray */
+}
