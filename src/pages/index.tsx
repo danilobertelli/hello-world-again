@@ -1,4 +1,4 @@
-export { default as Home } from "./Home";
-export { default as About } from "./About";
-export { default as PageBase } from "./PageBase";
-export { default as NotFound } from "./NotFound";
+export { Home } from "./Home";
+export { About } from "./About";
+export { PageBase } from "./PageBase/PageBase";
+export { NotFound } from "./NotFound";
