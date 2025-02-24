@@ -1,9 +1,10 @@
 import styles from "./Footer.module.css";
+import { FooterProps } from "./FooterProps";
 
-const Footer = () => {
+const Footer = ({ creator }: FooterProps) => {
   return (
     <footer className={styles.footer}>
-      Desenvolvido por Danilo &copy; 2023
+      <p>Developed by {creator}</p>
     </footer>
   );
 };
