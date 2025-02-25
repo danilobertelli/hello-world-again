@@ -1,47 +1,45 @@
 import { useState } from "react";
 import styles from "./Home.module.css";
+import { AudioRecorder } from "react-audio-voice-recorder";
 
 const Home = () => {
-  const [items, setItems] = useState<string[]>([]);
-  const [inputValue, setInputValue] = useState<string>("");
+  const [audioFiles, setAudioFiles] = useState<Blob[]>([]);
 
-  const handleAddItem = () => {
-    if (inputValue.trim()) {
-      setItems([...items, inputValue]);
-      setInputValue("");
-    }
+  const addAudioElement = (audioBlob: Blob) => {
+    setAudioFiles([...audioFiles, audioBlob]);
   };
 
   return (
     <div className={styles.container}>
-      <div>
-        <div className={styles.inputContainer}>
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Task name"
-            className={styles.input}
-          />
-          <button onClick={handleAddItem} className={styles.button}>
-            Add Task
-          </button>
-        </div>
-        {items.length > 0 ? (
-          <ul className={styles.list}>
-            {items.map((item, index) => (
-              <li key={index} className={styles.listItem}>
-                {item}
-                <input type="checkbox" className={styles.checkbox} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <>
-            <p>Congratulations, or not? You don't have any task.</p>
-            <p>Start by adding a new task above</p>
-          </>
-        )}
+      <div className={styles.audioList}>
+        <AudioRecorder
+          onRecordingComplete={addAudioElement}
+          audioTrackConstraints={{
+            noiseSuppression: true,
+            echoCancellation: true,
+          }}
+          onNotAllowedOrFound={(err) => console.table(err)}
+          downloadOnSavePress={false}
+          downloadFileExtension="wav"
+          mediaRecorderOptions={{
+            audioBitsPerSecond: 128000,
+          }}
+          showVisualizer={true}
+        />
+        <ul>
+          {audioFiles.map((audioBlob, index) => (
+            <li key={index}>
+              <audio controls src={URL.createObjectURL(audioBlob)} />
+              <br />
+              <a
+                href={URL.createObjectURL(audioBlob)}
+                download={`recording-${index + 1}.wav`}
+              >
+                Download
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
       <div>
         <img
