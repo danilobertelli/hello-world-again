@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;  
+  overflow: hidden;
+}
+
+.audioRecorder {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  bottom: 60px;
+  right: 30px;
+  padding: 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.audioList {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 60px;
+  width: 100%;
+}
+
+.audioList ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; 
+  width: 100%;
+}
+
+.audioList li {
+  margin: 10px;
+}
