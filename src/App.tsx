@@ -2,9 +2,13 @@ import "./App.css";
 import AppRoutes from "./routes";
 
 function App() {
-  console.log("Testing...")
-  const name = process.env.REACT_APP_HF_KEY as string
-  console.log(`Testing name = ${name}`)
+  console.log("Testing...");
+
+  // Read environment variable from Vite
+  const name = import.meta.env.VITE_HUGGINGFACE_API_TOKEN;
+
+  console.log(`APKI Key = ${name ? "Loaded" : "Not Found"}`);
+
   return <AppRoutes />;
 }
 
