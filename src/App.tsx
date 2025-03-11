@@ -7,7 +7,7 @@ function App() {
   // Read environment variable from Vite
   const name = import.meta.env.VITE_HUGGINGFACE_API_TOKEN;
 
-  console.log(`APKI Key = ${name ? "Loaded" : "Not Found"}`);
+  console.log(`API Key = ${name ? "Loaded" : "Not Found"}`);
 
   return <AppRoutes />;
 }
