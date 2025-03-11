@@ -1,5 +1,5 @@
 import { HfInference } from "@huggingface/inference";
-const hf = new HfInference(process.env.HUGGINGFACE_API_TOKEN as string);
+const hf = new HfInference(process.env.REACT_APP_HF_KEY as string);
 
 const transcribeAudio = async (audioBlob: Blob) => {
     const audioFile = new File([audioBlob], "audio.wav", { type: "audio/wav" });
