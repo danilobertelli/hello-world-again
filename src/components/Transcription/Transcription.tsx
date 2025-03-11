@@ -1,7 +1,9 @@
 import { HfInference } from "@huggingface/inference";
-const hf = new HfInference(import.meta.env.VITE_HF_API_KEY as string);
+const hf = new HfInference(process.env.HUGGINGFACE_API_TOKEN as string);
 
 const transcribeAudio = async (audioBlob: Blob) => {
+    const model = process.env.MODEL_NAME as string
+    console.log(`Model used: ${model}`)
     const audioFile = new File([audioBlob], "audio.wav", { type: "audio/wav" });
     let response;
     const maxAttempts = 2;
