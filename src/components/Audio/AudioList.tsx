@@ -2,7 +2,7 @@ import { AudioRecorder } from "react-audio-voice-recorder";
 import styles from "./AudioList.module.css";
 import { db } from "../../database/db";
 import { useLiveQuery } from "dexie-react-hooks";
-import { transcribeAudio } from "../Transcription";
+import { transcribeAudioPy } from "../Transcription";
 
 const AudioList = () => {
   async function addVoiceNote(note: Blob) {
@@ -26,7 +26,7 @@ const AudioList = () => {
 
   async function updateTranscription(id: number, note: Blob) {
     try {
-      const transcribe = await transcribeAudio(note);
+      const transcribe = await transcribeAudioPy(note);
       await db.notes.update(id, { transcribe });
       console.log(`Voice note updated successfully with id: ${id}`);
     } catch (error) {
@@ -70,7 +70,7 @@ const AudioList = () => {
           downloadOnSavePress={false}
           downloadFileExtension="wav"
           mediaRecorderOptions={{
-            audioBitsPerSecond: 128000,
+            audioBitsPerSecond: 16000,
           }}
           showVisualizer={true}
         />
