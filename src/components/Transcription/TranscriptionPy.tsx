@@ -11,7 +11,7 @@ const transcribeAudioPy = async (audioBlob: Blob) => {
   // Loop de tentativas em caso de falhas temporárias
   while (attempts < maxAttempts) {
     try {
-      response = await fetch("https://python-transcribe-production.up.railway.app/transcribe", {
+      response = await fetch("https://python-transcribe.onrender.com/transcribe", {
         method: "POST",
         body: formData,
       });
