@@ -17,3 +17,7 @@
   --accent: #ff4500; /* OrangeRed */
   --muted: #d3d3d3; /* LightGray */
 }
+
+.overflow-hidden {
+  overflow: hidden;
+}

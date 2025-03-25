@@ -8,13 +8,13 @@ const PageBase = () => {
   const creator = context?.creator;
 
   return (
-    <main>
+    <>
       <Header />
       <Container>
         <Outlet />
       </Container>
       <Footer creator={creator} />
-    </main>
+    </>
   );
 };
 

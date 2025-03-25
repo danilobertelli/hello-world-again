@@ -1,6 +1,6 @@
 .container {
-  text-align: center;
-  padding: 20px;
+  flex: 1; /* ocupa espaço vertical restante */
   display: flex;
   justify-content: center;
+  align-items: stretch;
 }

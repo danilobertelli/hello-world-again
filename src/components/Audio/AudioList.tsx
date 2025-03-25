@@ -1,11 +1,11 @@
 import { AudioRecorder } from "react-audio-voice-recorder";
-import styles from "./AudioList.module.css";
 import { db } from "../../database/db";
 import { useLiveQuery } from "dexie-react-hooks";
-import { transcribeAudioPy } from "../Transcription";
+import { transcribeAudioPy } from "../../service";
+import styles from "./AudioList.module.css";
 
 const AudioList = () => {
-  async function addVoiceNote(note: Blob) {
+  const addVoiceNote = async (note: Blob) => {
     console.log(`Will add a new note ${note} to database`);
     if (note) {
       try {
@@ -24,7 +24,7 @@ const AudioList = () => {
     }
   }
 
-  async function updateTranscription(id: number, note: Blob) {
+  const updateTranscription = async (id: number, note: Blob) => {
     try {
       const transcribe = await transcribeAudioPy(note);
       await db.notes.update(id, { transcribe });
@@ -44,16 +44,11 @@ const AudioList = () => {
         {notes?.map((voiceNote) => (
           <li key={voiceNote.id}>
             {voiceNote.date.toString()}
-            <br />
+            {/* A tag br é uma tag que caiu em desuso não se usa mais ela, espaçamentos dentro do html são feitos via css */}
+            <br /> 
             <br />
             <audio controls src={URL.createObjectURL(voiceNote.note)} />
             <br />
-            {/* <a
-              href={URL.createObjectURL(voiceNote.note)}
-              download={`recording-${voiceNote.id + 1}.wav`}
-            >
-              Download
-            </a> */}
             <h3>Transcrição da nota:</h3>
             <p>{voiceNote.transcribe}</p>
           </li>

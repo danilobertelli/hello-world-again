@@ -1,4 +1,6 @@
 import { createContext } from "react";
-import { AppContextType } from "./AppContextType";
+export interface AppContextType {
+  creator: string;
+}
 
 export const AppContext = createContext<AppContextType | null>(null);
