@@ -1,9 +1,8 @@
 .container {
   width: 100%;
-  /* Existe um scroll na sua página que não é necessário precisamos remover ele da pagina principal e colocar só aqui */
-  height: 90vh; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
