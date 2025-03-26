@@ -17,3 +17,20 @@
   --accent: #ff4500; /* OrangeRed */
   --muted: #d3d3d3; /* LightGray */
 }
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

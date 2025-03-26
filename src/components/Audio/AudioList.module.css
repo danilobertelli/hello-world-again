@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;  
   overflow: hidden;
+  /* Linha adicionada por conta do scroll */
+  padding: 20px 0;
 }
 
 .audioRecorder {

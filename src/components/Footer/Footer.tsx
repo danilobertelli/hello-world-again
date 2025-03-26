@@ -1,11 +1,16 @@
 import styles from "./Footer.module.css";
-import { FooterProps } from "./FooterProps";
 
+//A interface passada pra o componente normalmente é definida no mesmo arquivo dele 
+export interface FooterProps {
+  creator: string | undefined;
+}
+
+// O mesmo comentário do header se aplica aqui, esse componente não é um footer de fato, ele é uma div comum.
 const Footer = ({ creator }: FooterProps) => {
   return (
-    <footer className={styles.footer}>
+    <div className={styles.footer}>
       <p>Developed by {creator}</p>
-    </footer>
+    </div>
   );
 };
 
